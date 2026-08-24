@@ -1,0 +1,1398 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ========================================= */
+/* BODY */
+/* ========================================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(130, 58, 100, 0.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(72, 38, 102, 0.3),
+            transparent 35%
+        ),
+        #09070d;
+
+    color: #fff;
+
+    font-family: "Montserrat", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.2;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+body::before {
+
+    background: #ff4f9a;
+
+    top: -80px;
+
+    left: -80px;
+}
+
+
+body::after {
+
+    background: #9a5cff;
+
+    right: -80px;
+
+    bottom: -80px;
+}
+
+
+/* ========================================= */
+/* STARS */
+/* ========================================= */
+
+.stars,
+.stars::before,
+.stars::after {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        140px 140px;
+
+    opacity: .2;
+}
+
+
+/* ========================================= */
+/* APP */
+/* ========================================= */
+
+.app {
+
+    width: 100%;
+
+    min-height: 100vh;
+}
+
+
+/* ========================================= */
+/* SCREENS */
+/* ========================================= */
+
+.screen {
+
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 24px;
+}
+
+
+.screen.active {
+
+    display: flex;
+
+    animation: appear .8s ease;
+}
+
+
+/* ========================================= */
+/* COMMON CARDS */
+/* ========================================= */
+
+.ticket,
+.story-card,
+.memory-card,
+.question-card,
+.form-card,
+.success-card {
+
+    width: min(680px, 100%);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background: rgba(20, 15, 27, .82);
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5);
+
+    padding: 42px;
+
+    text-align: center;
+}
+
+
+/* ========================================= */
+/* TICKET */
+/* ========================================= */
+
+.ticket {
+
+    border: 1px dashed rgba(255, 190, 220, .5);
+
+    position: relative;
+}
+
+
+.ticket::before,
+.ticket::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+
+    height: 30px;
+
+    background: #09070d;
+
+    border-radius: 50%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+}
+
+
+.ticket::before {
+
+    left: -16px;
+}
+
+
+.ticket::after {
+
+    right: -16px;
+}
+
+
+/* ========================================= */
+/* LABELS */
+/* ========================================= */
+
+.ticket-top,
+.small-label {
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    color: #e8a8ca;
+
+    font-weight: 700;
+}
+
+
+/* ========================================= */
+/* ICONS */
+/* ========================================= */
+
+.ticket-icon,
+.clapper,
+.film {
+
+    font-size: 70px;
+
+    margin: 25px 0;
+}
+
+
+/* ========================================= */
+/* HEADINGS */
+/* ========================================= */
+
+h1,
+h2 {
+
+    font-family: "Cormorant Garamond", serif;
+}
+
+
+h1 {
+
+    font-size: clamp(42px, 9vw, 72px);
+
+    line-height: .95;
+
+    margin: 20px 0;
+}
+
+
+h2 {
+
+    font-size: clamp(38px, 7vw, 58px);
+
+    line-height: 1;
+
+    margin: 24px 0;
+}
+
+
+/* ========================================= */
+/* PARAGRAPHS */
+/* ========================================= */
+
+p {
+
+    color: #d8cedb;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+
+/* ========================================= */
+/* BUTTONS */
+/* ========================================= */
+
+.primary,
+.yes-button,
+.no-button,
+.options button {
+
+    border: 0;
+
+    border-radius: 999px;
+
+    padding: 15px 28px;
+
+    margin-top: 30px;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+
+.primary {
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e45d99,
+            #8e5de7
+        );
+
+    box-shadow:
+        0 12px 30px rgba(205, 74, 141, .25);
+}
+
+
+.primary:hover,
+.yes-button:hover,
+.no-button:hover,
+.options button:hover {
+
+    transform: translateY(-3px);
+}
+
+
+/* ========================================= */
+/* QUESTION */
+/* ========================================= */
+
+.question-card h1 {
+
+    font-size: clamp(42px, 8vw, 68px);
+}
+
+
+.date-fixed {
+
+    color: #f3a9cf;
+
+    font-weight: 600;
+}
+
+
+/* ========================================= */
+/* ANSWER BUTTONS */
+/* ========================================= */
+
+.answer-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+
+.yes-button {
+
+    background: #e45d99;
+
+    color: white;
+}
+
+
+.no-button {
+
+    background: rgba(255,255,255,.08);
+
+    color: #fff;
+}
+
+
+.no-message {
+
+    min-height: 28px;
+
+    margin-top: 20px;
+
+    color: #f1a7cb;
+}
+
+
+/* ========================================= */
+/* FORM */
+/* ========================================= */
+
+.form-card {
+
+    text-align: left;
+}
+
+
+.form-card h2,
+.success-card h1 {
+
+    text-align: center;
+}
+
+
+.form-card label {
+
+    display: block;
+
+    margin: 20px 0 8px;
+
+    color: #e7dce8;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.06);
+
+    color: #fff;
+
+    padding: 15px;
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+
+select option {
+
+    background: #19121e;
+}
+
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color: #e45d99;
+}
+
+
+/* ========================================= */
+/* TIME OPTIONS */
+/* ========================================= */
+
+.options {
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+.options button {
+
+    margin-top: 0;
+
+    background: rgba(255,255,255,.06);
+
+    color: #ddd;
+
+    padding: 11px 16px;
+}
+
+
+.options button.selected {
+
+    background: #e45d99;
+
+    color: #fff;
+}
+
+
+/* ========================================= */
+/* CHECKBOXES */
+/* ========================================= */
+
+.checks {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.checks label {
+
+    margin: 0;
+
+    background: rgba(255,255,255,.05);
+
+    padding: 12px;
+
+    border-radius: 12px;
+}
+
+
+.checks input {
+
+    width: auto;
+
+    margin-right: 6px;
+}
+
+
+/* ========================================= */
+/* FORM BUTTON */
+/* ========================================= */
+
+.form-card .primary {
+
+    width: 100%;
+}
+
+
+#submitStatus {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #f1a7cb;
+}
+
+
+/* ========================================= */
+/* FINAL TICKET */
+/* ========================================= */
+
+.final-ticket {
+
+    margin: 30px 0;
+
+    padding: 28px;
+
+    border: 1px dashed rgba(255,190,220,.55);
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.04);
+}
+
+
+.final-ticket p {
+
+    margin: 8px 0;
+}
+
+
+.final-ticket strong {
+
+    display: block;
+
+    color: #f2a6cb;
+
+    margin-top: 20px;
+}
+
+
+.final-message {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 27px;
+}
+
+
+/* ========================================= */
+/* CONFETTI */
+/* ========================================= */
+
+.confetti-piece {
+
+    position: fixed;
+
+    top: -30px;
+
+    font-size: 24px;
+
+    animation:
+        fall 4s linear forwards;
+
+    z-index: 20;
+}
+
+
+/* ========================================= */
+/* SCREEN ANIMATIONS */
+/* ========================================= */
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(.98);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes fall {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ================================================= */
+/* ================================================= */
+/* OUR DAY SECTION */
+/* ================================================= */
+/* ================================================= */
+
+.day-card {
+
+    width: min(950px, 94%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 40px 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(28, 15, 38, 0.94),
+            rgba(18, 11, 28, 0.94)
+        );
+
+    backdrop-filter: blur(18px);
+
+    text-align: center;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    position: relative;
+
+    overflow-x: hidden;
+}
+
+
+/* ========================================= */
+/* DAY CARD GLOW */
+/* ========================================= */
+
+.day-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(228, 93, 153, .10);
+
+    filter: blur(70px);
+
+    top: -100px;
+
+    left: -80px;
+
+    pointer-events: none;
+}
+
+
+.day-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(142, 93, 231, .10);
+
+    filter: blur(70px);
+
+    bottom: -100px;
+
+    right: -80px;
+
+    pointer-events: none;
+}
+
+
+/* ========================================= */
+/* INTRO */
+/* ========================================= */
+
+.day-intro {
+
+    max-width: 650px;
+
+    margin: 15px auto 30px;
+
+    line-height: 1.8;
+
+    color: #d8cedb;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ================================================= */
+/* MEMORY SLIDER */
+/* ================================================= */
+
+.memory-slider {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 25px 0 35px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* SIDE FADE */
+/* ========================================= */
+
+.memory-slider::before,
+.memory-slider::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 90px;
+
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+.memory-slider::before {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(28, 15, 38, 1),
+            rgba(28, 15, 38, 0)
+        );
+}
+
+
+.memory-slider::after {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            rgba(28, 15, 38, 1),
+            rgba(28, 15, 38, 0)
+        );
+}
+
+
+/* ========================================= */
+/* MOVING TRACK */
+/* ========================================= */
+
+.memory-track {
+
+    display: flex;
+
+    gap: 22px;
+
+    width: max-content;
+
+    animation:
+        romanticSlide 100s linear infinite;
+}
+
+
+.memory-track:hover {
+
+    animation-play-state: paused;
+}
+
+
+/* ========================================= */
+/* MEMORY CARD */
+/* ========================================= */
+
+.moment-card {
+
+    width: 300px;
+
+    min-height: 315px;
+
+    flex-shrink: 0;
+
+    padding: 32px 25px;
+
+    border-radius: 28px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.105),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+
+/* ========================================= */
+/* CARD DECORATION */
+/* ========================================= */
+
+.moment-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    border-radius: 50%;
+
+    top: -70px;
+
+    right: -50px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,105,160,.18),
+            transparent 70%
+        );
+}
+
+
+.moment-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    bottom: -70px;
+
+    left: -50px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(142,93,231,.18),
+            transparent 70%
+        );
+}
+
+
+/* ========================================= */
+/* CARD HOVER */
+/* ========================================= */
+
+.moment-card:hover {
+
+    transform:
+        translateY(-12px)
+        scale(1.035);
+
+    border-color:
+        rgba(255,150,195,.35);
+
+    box-shadow:
+        0 25px 55px rgba(218,76,142,.22);
+}
+
+
+/* ========================================= */
+/* CARD NUMBER */
+/* ========================================= */
+
+.moment-number {
+
+    position: absolute;
+
+    top: 17px;
+
+    left: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    color: #e8a8ca;
+
+    opacity: .65;
+}
+
+
+/* ========================================= */
+/* CARD ICON */
+/* ========================================= */
+
+.moment-icon {
+
+    width: 78px;
+
+    height: 78px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    margin-bottom: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.15),
+            rgba(255,105,160,.10)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.20);
+
+    position: relative;
+
+    z-index: 2;
+
+    transition: .4s ease;
+}
+
+
+.moment-card:hover .moment-icon {
+
+    transform:
+        scale(1.1)
+        rotate(-4deg);
+
+    box-shadow:
+        0 10px 30px rgba(255,95,150,.22);
+}
+
+
+/* ========================================= */
+/* CARD TITLE */
+/* ========================================= */
+
+.moment-card h3 {
+
+    margin: 4px 0 13px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    color: #f4b4d2;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* CARD TEXT */
+/* ========================================= */
+
+.moment-card p {
+
+    font-size: 13.5px;
+
+    line-height: 1.75;
+
+    color: #d4c9d7;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* SLIDER HINT */
+/* ========================================= */
+
+.slider-hint {
+
+    margin-top: 0;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    color: #d99ab9;
+
+    opacity: .8;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        hintPulse 2s ease-in-out infinite;
+}
+
+
+/* ========================================= */
+/* SWEET LINE */
+/* ========================================= */
+
+.sweet-line {
+
+    margin: 25px 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 23px;
+
+    color: #f0b0cf;
+
+    font-style: italic;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ========================================= */
+/* SLIDER ANIMATION */
+/* ========================================= */
+
+@keyframes romanticSlide {
+
+    0% {
+
+        transform:
+            translateX(0);
+    }
+
+    100% {
+
+        transform:
+            translateX(-50%);
+    }
+}
+
+
+/* ========================================= */
+/* HINT ANIMATION */
+/* ========================================= */
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+
+        opacity: .55;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+}
+
+
+/* ========================================= */
+/* DAY CARD SCROLLBAR */
+/* ========================================= */
+
+.day-card::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+
+.day-card::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.day-card::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            #e45d99,
+            #8e5de7
+        );
+
+    border-radius: 20px;
+}
+
+
+/* ================================================= */
+/* MOBILE */
+/* ================================================= */
+
+@media (max-width: 600px) {
+
+    .screen {
+
+        padding: 15px;
+    }
+
+
+    .ticket,
+    .story-card,
+    .memory-card,
+    .question-card,
+    .form-card,
+    .success-card {
+
+        padding: 28px 20px;
+
+        border-radius: 24px;
+    }
+
+
+    .checks {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* OUR DAY */
+
+    .day-card {
+
+        width: 96%;
+
+        padding: 28px 15px;
+
+        max-height: 92vh;
+
+        border-radius: 24px;
+    }
+
+
+    .day-card h2 {
+
+        font-size: 38px;
+
+        line-height: 1.05;
+    }
+
+
+    .day-intro {
+
+        font-size: 14px;
+
+        padding: 0 8px;
+    }
+
+
+    /* MEMORY CARDS */
+
+    .memory-slider {
+
+        padding-top: 20px;
+
+        padding-bottom: 25px;
+    }
+
+
+    .memory-slider::before,
+    .memory-slider::after {
+
+        width: 35px;
+    }
+
+
+    .moment-card {
+
+        width: 275px;
+
+        min-height: 300px;
+
+        padding: 28px 22px;
+    }
+
+
+    .moment-icon {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 34px;
+    }
+
+
+    .moment-card h3 {
+
+        font-size: 23px;
+    }
+
+
+    .moment-card p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    .sweet-line {
+
+        font-size: 21px;
+
+        padding: 0 10px;
+    }
+
+}
+
+
+/* ========================================= */
+/* VERY SMALL PHONES */
+/* ========================================= */
+
+@media (max-width: 380px) {
+
+    .day-card {
+
+        padding: 24px 12px;
+    }
+
+
+    .moment-card {
+
+        width: 255px;
+
+        min-height: 295px;
+    }
+
+
+    .moment-card h3 {
+
+        font-size: 21px;
+    }
+
+
+    .moment-card p {
+
+        font-size: 12.5px;
+    }
+
+}
