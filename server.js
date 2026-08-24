@@ -6,19 +6,27 @@ const { Resend } = require("resend");
 
 const app = express();
 
-
+// ================================
 // Middleware
+// ================================
 app.use(cors());
 app.use(express.json());
 
-
-// Resend setup
+// ================================
+// Resend Setup
+// ================================
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// ================================
+// Test Route
+// ================================
 app.get("/", function (req, res) {
     res.send("Movie Date Server is running ❤️");
 });
 
-// Send movie date response
+// ================================
+// Send Movie Date Response
+// ================================
 app.post("/api/send-response", async function (req, res) {
 
     const {
@@ -31,6 +39,10 @@ app.post("/api/send-response", async function (req, res) {
         message
     } = req.body;
 
+    console.log("=================================");
+    console.log("📩 Send Response API Called");
+    console.log("Request Data:", req.body);
+    console.log("=================================");
 
     try {
 
@@ -39,7 +51,7 @@ app.post("/api/send-response", async function (req, res) {
             // Resend test sender
             from: "onboarding@resend.dev",
 
-            // YOUR EMAIL ADDRESS
+            // Your email
             to: "boddusaikumar670@gmail.com",
 
             subject: "❤️ New Movie Date Response",
@@ -99,37 +111,41 @@ app.post("/api/send-response", async function (req, res) {
             `
         });
 
-
-        console.log("Email sent:", result);
-
+        console.log("=================================");
+        console.log("✅ EMAIL SENT");
+        console.log("Resend Result:", result);
+        console.log("=================================");
 
         res.json({
             success: true,
             message: "Response sent successfully ❤️"
         });
 
-
     } catch (error) {
 
-        console.log("Email Error:", error);
-
+        console.error("=================================");
+        console.error("🔥 EMAIL ERROR:");
+        console.error(error);
+        console.error("=================================");
 
         res.status(500).json({
             success: false,
-            message: "Failed to send email"
+            message: error.message || "Failed to send email"
         });
-
     }
-
 });
 
+// ================================
+// Start Server
+// ================================
 
-// Start server
-app.listen(3000, function () {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function () {
 
     console.log("=================================");
     console.log("Movie Date Server Started ❤️");
-    console.log("Server: http://localhost:3000");
+    console.log(`Server running on port ${PORT}`);
     console.log("=================================");
 
 });
